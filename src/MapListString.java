@@ -105,6 +105,6 @@ class Queue{
 		}
 		return dequeueNode;
 	}
-	//GOOD good good
+	//GOOD good good good
 }
 

@@ -46,6 +46,7 @@ public class threadPriority {
 		}catch(InterruptedException e){
 			System.out.println("The thread is interrupted");
 		}
+		
 		System.out.println("High thread:"+hiThread.getClick());
 		System.out.println("Low thread:"+loThread.getClick());
 	}

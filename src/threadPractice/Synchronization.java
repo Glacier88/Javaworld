@@ -1,7 +1,7 @@
 package threadPractice;
 
 class Callme{
-	    synchronized void call(String msg){ //synchronization must be in the same instance
+	    /*synchronized*/ void call(String msg){ //synchronization must be in the same instance
 		System.out.print("["+msg);
 		try{
 			Thread.sleep(1000);
@@ -23,7 +23,9 @@ class caller implements Runnable{
 		t.start();
 	}
 	public void run(){
-		target.call(message);
+		synchronized(target){
+			target.call(message);
+		}
 	}
 }
 public class Synchronization {

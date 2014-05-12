@@ -54,7 +54,7 @@ public class ArrayBinarySearch {
 		String status;
 		String status2;
 		status=find(array,888);
-		status2=findTemplate(array,8);
+		status2=findTemplate(array,888);
 		System.out.println(status);
 		System.out.println(status2);
 	}

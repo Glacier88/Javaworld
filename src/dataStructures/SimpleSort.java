@@ -103,7 +103,27 @@ class sortAlg{
 			}
 		}
 	}
+	
+	//A Tidy Insertion Sort
+		public void insertSort2(){
+			int j;
+			for(int i=0;i<ob.getSize()-1;i++){
+				int mark=array[i+1];
+				int markIndex;
+				for(j=i;j>=0;j--){
+					if(array[j]>=mark){
+						array[j+1]=array[j];
+					}
+					else
+						break;
+				}
+			    markIndex=j+1;
+			    array[markIndex]=mark;
+			}
+		}
 }
+
+
 
 
 public class SimpleSort {
@@ -142,7 +162,7 @@ public class SimpleSort {
 			case 2:
 				sort.selectSort();
 			case 3:
-				sort.insertSort();
+				sort.insertSort2();
 		}
 		arr.display();
 	}

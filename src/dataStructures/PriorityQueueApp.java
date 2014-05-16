@@ -1,5 +1,6 @@
 package dataStructures;
 
+//This is quite different from the structure of a normal queue
 class PriorityQueue{
 	private int maxSize;
 	private int[] array;
@@ -59,7 +60,5 @@ public class PriorityQueueApp {
 		while(!Pqueue.isEmpty()){
 			System.out.println(Pqueue.remove());
 		}
-
 	}
-
 }

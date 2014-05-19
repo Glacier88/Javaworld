@@ -81,7 +81,9 @@ class firstLastLinkList extends LinkList{
 			first=link;
 		else
 			last.next=link;
-		last=last.next;
+		//Not a good way
+		//last=last.next;
+		last=link;
 	}
 }
 

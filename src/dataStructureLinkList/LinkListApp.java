@@ -1,7 +1,7 @@
 package dataStructureLinkList;
 
 class LinkList {
-	private Link first;
+	protected Link first;
 	
 	void insertFirst(int i,double d){
 		Link link=new Link(i,d);
@@ -58,6 +58,31 @@ class LinkList {
 		}
 		return current;
 	}
+	
+	boolean isEmpty(){
+		return (first==null);
+	}
+}
+
+class firstLastLinkList extends LinkList{
+	private Link last;
+	
+	void insertFirst(int i,double d){
+		Link newLink=new Link(i,d);
+		if(isEmpty())
+			last=newLink;
+		newLink.next=first;
+		first=newLink;
+	}
+	
+	void insertLast(int i,double d){
+		Link link=new Link(i,d);
+		if(isEmpty())
+			first=link;
+		else
+			last.next=link;
+		last=last.next;
+	}
 }
 
 public class LinkListApp{
@@ -76,6 +101,17 @@ public class LinkListApp{
 		System.out.println("After a set deletion");
 		linklist.displayList();
 		System.out.println("After a find() function");
-		linklist.find(102).display();
+		linklist.find(10).display();
+		
+		System.out.println("First last linklist");
+		//First Last Linklist
+		firstLastLinkList flist=new firstLastLinkList();
+		flist.insertFirst(2, 3);
+		flist.insertLast(6, 9);
+		flist.insertLast(8, 8);
+		flist.displayList();
+		flist.deleteLink(6);
+		System.out.println("first last linklist after deletion");
+		flist.displayList();
 	}
 }

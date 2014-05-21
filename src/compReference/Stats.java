@@ -13,6 +13,10 @@ class Garray<T extends Number>{
 		}
 		return sum/ob.length;
 	}
+	
+	boolean sameAvg(Garray<?> ob){
+		return (getAverage()==ob.getAverage());
+	}
 }
 public class Stats {
 	public static void main(String args[]){
@@ -22,7 +26,9 @@ public class Stats {
 		Garray<Double> doubleOb=new Garray<Double>(doubleArray);
 		System.out.println("int array: "+intOb.getAverage());
 		System.out.println("double array: "+doubleOb.getAverage());
-		
-		
+		if (intOb.sameAvg(doubleOb))
+			System.out.println("The averages are equal");
+		else
+			System.out.println("The averages are not equal");
 	}
 }

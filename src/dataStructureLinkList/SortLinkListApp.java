@@ -64,6 +64,9 @@ class SortLinkList{
 		first=first.next;
 		return temp;
 	}
+	boolean isEmpty(){
+		return(first==null);
+	}
 	
 	void displayList(){
 		LinkS current=first;
@@ -86,5 +89,22 @@ public class SortLinkListApp {
 		list.insertElement(10);
 		list.insertElement(2);
 		list.displayList();
+		System.out.println("Use SortLinkLIst to sort array");
+		int array[]=new int[10];
+		for(int i=0;i<10;i++){
+			array[i]=(int)(java.lang.Math.random()*99);
+		}
+		System.out.println("Unsorted array");
+		for(int i=0;i<array.length;i++){
+			System.out.println(array[i]);
+		}
+		SortLinkList sortlist=new SortLinkList();
+		for(int i=0;i<array.length;i++){
+			sortlist.insertElement(array[i]);
+		}
+		System.out.println("Sorted List");
+		while(!sortlist.isEmpty()){
+			System.out.println(sortlist.removeFirst());
+		}
 	}
 }

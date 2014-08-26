@@ -115,7 +115,7 @@ class Tree{
 	 * 2 The node has one child 
 	 * 3 The node has two children
 	 */
-	void delteNode(int idata){
+	void deleteNode(int idata){
 		//Search the node first
 		Node current=root;
 		Node parent=null;
@@ -160,6 +160,27 @@ class Tree{
 			}
 		}	
 		//IF THE DELETED NODE HAS TWO CHILDREN
+		/*
+		 * Two scenarios:
+		 * The successor is the right child of deleted Node
+		 * The successor is not the right child of delted Node, in which case,
+		 * successor`s right children need to be relocated to successor`s parent
+		 * This is done in the getSuccessor method. 
+		 */
+		else{
+			Node successor=getSuccessor(current);
+			if(current==root){
+				root=successor;
+			}
+			else if(isLeftChild){
+				parent.leftChild=successor;
+			}
+			else{
+				parent.rightChild=successor;
+			}
+			//This reassign of child applies to both occasions. 
+			successor.leftChild=current.leftChild;
+		}
 	}
 	//Get successor: an auxiliary function used in delete Nodes which have two children
 	Node getSuccessor(Node delNode){
@@ -171,14 +192,14 @@ class Tree{
 			successor=current;
 			current=current.leftChild;
 		}
+		//If successor is not right child of delete Node, make some connections. 
+		//Relocate successor`s right child to the leftchild of successor`s parent
 		if(successor!=delNode.rightChild){
 			successorParent.leftChild=successor.rightChild;
 			successor.rightChild=delNode.rightChild;
 		}
 		return successor;
-		
 	}
-	
 }
 public class TreeApp {
 	public static void main (String args[]){
@@ -199,5 +220,10 @@ public class TreeApp {
 	smallTree.traverseTree("Pre-order");
 	System.out.println("Tree traverse post order");
 	smallTree.traverseTree("Post-order");
+	
+	smallTree.deleteNode(2);
+	System.out.println("Delete one Node.");
+	smallTree.traverseTree("In-order");
+	
 	}
 }

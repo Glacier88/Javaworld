@@ -224,6 +224,6 @@ public class TreeApp {
 	smallTree.deleteNode(2);
 	System.out.println("Delete one Node.");
 	smallTree.traverseTree("In-order");
-	
+
 	}
 }

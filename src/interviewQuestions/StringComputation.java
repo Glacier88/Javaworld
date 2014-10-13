@@ -57,5 +57,7 @@ public class StringComputation {
 	public static void main(String args[]){
 		String expression="12+3*6+3";
 		System.out.println(computeString(expression));
+		if(!" ".equals("      "))
+			System.out.println("They are equal!");
 	}
 }
